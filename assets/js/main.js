@@ -2860,31 +2860,70 @@ function limparOutput() {
     document.getElementById('output').innerText = '';
 }
 
-// Função para verificar se pelo menos três sequências escolhidas foram sorteadas
+
+// Função para verificar e exibir quais números da sequência foram sorteados
 function verificarSequenciasSorteadas() {
     if (numerosEscolhidos.length < 3) {
         alert("Você precisa escolher pelo menos 3 números para verificar as sequências sorteadas.");
         return;
     }
 
-    let sequenciasSorteadas = 0;
+    let todasSorteadas = true;
     for (let i = 0; i <= numerosEscolhidos.length - 3; i++) {
         const sequencia = numerosEscolhidos.slice(i, i + 3);
-        if (sorteiosMegaSena.some(sorteio => {
-            for (let j = 0; j <= sorteio.length - 3; j++) {
-                if (JSON.stringify(sorteio.slice(j, j + 3)) === JSON.stringify(sequencia)) {
-                    return true;
+        let sequenciaSorteada = false;
+        const permutacoes = permutar(sequencia); // Função para gerar permutações da sequência
+
+        for (let p = 0; p < permutacoes.length; p++) {
+            const permutacao = permutacoes[p];
+            for (let j = 0; j <= sorteiosMegaSena.length - 1; j++) {
+                const sorteio = sorteiosMegaSena[j];
+                for (let k = 0; k <= sorteio.length - 3; k++) {
+                    if (JSON.stringify(sorteio.slice(k, k + 3)) === JSON.stringify(permutacao)) {
+                        sequenciaSorteada = true;
+                        alert(`A sequência ${permutacao.join(', ')} foi sorteada no sorteio ${sorteio.join(', ')}.`);
+                        break;
+                    }
+                }
+                if (sequenciaSorteada) {
+                    break;
                 }
             }
-            return false;
-        })) {
-            sequenciasSorteadas++;
+            if (sequenciaSorteada) {
+                break;
+            }
+        }
+
+        if (!sequenciaSorteada) {
+            todasSorteadas = false;
+            break;
         }
     }
 
-    if (sequenciasSorteadas >= 3) {
-        alert(`Atenção: Pelo menos três das sequências escolhidas já foram sorteadas.`);
+    if (todasSorteadas) {
+        alert(`Atenção: Todas as sequências de três números escolhidas já foram sorteadas.`);
     } else {
-        alert(`Nenhuma sequência de três números escolhida foi sorteada até agora.`);
+        alert(`Pelo menos uma das sequências de três números escolhidas ainda não foi sorteada.`);
     }
+}
+
+// Função para gerar todas as permutações de uma array
+function permutar(arr) {
+    const result = [];
+
+    const permute = (arr, m = []) => {
+        if (arr.length === 0) {
+            result.push(m);
+        } else {
+            for (let i = 0; i < arr.length; i++) {
+                const current = arr.slice();
+                const next = current.splice(i, 1);
+                permute(current.slice(), m.concat(next));
+            }
+        }
+    };
+
+    permute(arr);
+
+    return result;
 }
