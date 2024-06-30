@@ -2927,3 +2927,64 @@ function permutar(arr) {
 
     return result;
 }
+
+
+//FUNÇÃO PARA VERIFICAR DEZENAS REPETIDAS
+
+function contarCoincidencias(array1, array2) {
+    return array1.filter(value => array2.includes(value));
+}
+
+// Função para contar quantas vezes um conjunto de dezenas aparece nos sorteios
+function contarRepeticoes(sorteios, numDezenas) {
+    let repeticoes = {};
+    for (let i = 0; i < sorteios.length; i++) {
+        for (let j = i + 1; j < sorteios.length; j++) {
+            let coincidencias = contarCoincidencias(sorteios[i], sorteios[j]);
+            if (coincidencias.length === numDezenas) {
+                let key = coincidencias.sort((a, b) => a - b).join(',');
+                if (repeticoes[key]) {
+                    repeticoes[key]++;
+                } else {
+                    repeticoes[key] = 1;
+                }
+            }
+        }
+    }
+    let count = Object.keys(repeticoes).length;
+    return { count, repeticoes };
+}
+
+// Função para exibir repetições em uma lista HTML
+function exibirRepeticoes(listaId, repeticoes) {
+    let lista = document.getElementById(listaId);
+    lista.innerHTML = ''; // Limpa a lista antes de adicionar novos itens
+    for (const [combination, times] of Object.entries(repeticoes)) {
+        let li = document.createElement('li');
+        li.textContent = `${combination} - ${times} vezes`;
+        lista.appendChild(li);
+    }
+}
+
+// Função para atualizar e exibir resultados
+function atualizarResultados(resultadoId, countId, listaId, resultado) {
+    document.getElementById(countId).textContent = resultado.count;
+    exibirRepeticoes(listaId, resultado.repeticoes);
+    document.getElementById(resultadoId).style.display = 'block';
+}
+
+// Funções para manipular os botões
+document.getElementById('btnSena').addEventListener('click', function() {
+    let resultadoSena = contarRepeticoes(sorteiosMegaSena, 6);
+    atualizarResultados('resultadoSena', 'countSena', 'listaSena', resultadoSena);
+});
+
+document.getElementById('btnQuina').addEventListener('click', function() {
+    let resultadoQuina = contarRepeticoes(sorteiosMegaSena, 5);
+    atualizarResultados('resultadoQuina', 'countQuina', 'listaQuina', resultadoQuina);
+});
+
+document.getElementById('btnQuadra').addEventListener('click', function() {
+    let resultadoQuadra = contarRepeticoes(sorteiosMegaSena, 4);
+    atualizarResultados('resultadoQuadra', 'countQuadra', 'listaQuadra', resultadoQuadra);
+});

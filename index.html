@@ -1,32 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/css/styles.css" />
-  <title>Gerador de números</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>Gerador de números</title>
+  </head>
+  <body>
+    <section class="home">
+      <h1>Gerador de Sugestões</h1>
+      <div class="container-buttons">
+        <button class="button" onclick="inserirSorteio()">Escolher números</button>
+        <button class="button" onclick="verNumerosMaisFrequentes()">
+          Ver Números Mais Frequentes
+        </button>
+        <button class="button" onclick="gerarSugestoes()">Gerar Jogos</button>
+        <button class="button" onclick="adicionarNumerosEscolhidos()">
+          Adicionar Números
+        </button>
+        <button class="button" onclick="exibirNumerosEscolhidos()">
+          Ver Números Escolhidos
+        </button>
+        <button class="button" onclick="verificarSequenciasSorteadas()">
+          Verificar Sequências Sorteadas
+        </button>
+        <button class="button" onclick="sair()">Sair</button>
+        <p id="output"></p>
+      </div>
+      <div class="verificar-dezena">
+        <h2>Verificar repetições</h2>
 
-  <section class="home">
-    <h1>Gerador de Sugestões</h1>
-    <div class="container-buttons">
-      <button class="button" onclick="inserirSorteio()">Escolher números</button>
-      <button class="button" onclick="verNumerosMaisFrequentes()">Ver Números Mais Frequentes</button>
-      <button class="button" onclick="gerarSugestoes()">Gerar Jogos</button>
-      <button class="button" onclick="adicionarNumerosEscolhidos()">Adicionar Números</button>
-      <button class="button" onclick="exibirNumerosEscolhidos()">Ver Números Escolhidos</button>
-      <button class="button" onclick="verificarSequenciasSorteadas()">Verificar Sequências Sorteadas</button>
-      <button class="button" onclick="sair()">Sair</button>
-      <p id="output"></p>
-    </div>
-  </section>
-  
-  <script src="./assets/js/main.js"></script>
-</body>
+        <button id="btnSena">Exibir Repetições de 6 Dezenas (Sena)</button>
+        <div id="resultadoSena" style="display: none">
+          <p>
+            Repetições de 6 dezenas (Sena): <span id="countSena">...</span> vezes
+          </p>
+          <ul id="listaSena"></ul>
+        </div>
+
+        <button id="btnQuina">Exibir Repetições de 5 Dezenas (Quina)</button>
+        <div id="resultadoQuina" style="display: none">
+          <p>
+            Repetições de 5 dezenas (Quina):
+            <span id="countQuina">...</span> vezes
+          </p>
+          <ul id="listaQuina"></ul>
+        </div>
+
+        <button id="btnQuadra">Exibir Repetições de 4 Dezenas (Quadra)</button>
+        <div id="resultadoQuadra" style="display: none">
+          <p>
+            Repetições de 4 dezenas (Quadra):
+            <span id="countQuadra">...</span> vezes
+          </p>
+          <ul id="listaQuadra"></ul>
+        </div>
+      </div>
+    </section>
+
+   
+
+    <script src="./assets/js/main.js"></script>
+  </body>
 </html>
