@@ -30,10 +30,10 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-image: url('../images/mega-sena.jpg');
+    /* background-image: url('../images/mega-sena.jpg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     position: relative;
 }
 
@@ -52,7 +52,7 @@ h1 {
     position: absolute;
     top: 100px;
     text-transform: uppercase;
-    text-shadow: 2px 2px 2px black;
+    /* text-shadow: 2px 2px 2px black; */
     
 }
 
