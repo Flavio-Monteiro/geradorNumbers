@@ -1,0 +1,81 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+/*ESTILOS HTML*/
+html {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--bg-color-cards);
+    color: var(--text-color-primary);
+    font-family: var(--font-primary);
+
+}
+
+/*ESTILOS BODY*/
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: #ffffff;
+    font-family: var(--font-primary);
+}
+
+.home {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('../images/mega-sena.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.container-buttons {
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 2em;
+    position: absolute;
+    top: 100px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 2px black;
+    
+}
+
+.button {
+    padding: 10px 20px;
+    min-width: 250px;
+    min-height: 50px;
+    margin: 5px;
+    background: #2980b9;
+    color: #ffffff;
+    border: none;
+    border: 1px solid #efefef;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px #5d5d5de4;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: translate(2px, -3px);
+    /* box-shadow: 2px 2px 3px #5d5d5de4; */
+}
+
+#output {
+    margin-top: 20px;
+}
