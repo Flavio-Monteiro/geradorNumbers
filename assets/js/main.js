@@ -2974,17 +2974,57 @@ function atualizarResultados(resultadoId, countId, listaId, resultado) {
 }
 
 // Funções para manipular os botões
-document.getElementById('btnSena').addEventListener('click', function() {
+document.getElementById('btnSena').addEventListener('click', function () {
     let resultadoSena = contarRepeticoes(sorteiosMegaSena, 6);
     atualizarResultados('resultadoSena', 'countSena', 'listaSena', resultadoSena);
 });
 
-document.getElementById('btnQuina').addEventListener('click', function() {
+document.getElementById('btnQuina').addEventListener('click', function () {
     let resultadoQuina = contarRepeticoes(sorteiosMegaSena, 5);
     atualizarResultados('resultadoQuina', 'countQuina', 'listaQuina', resultadoQuina);
 });
 
-document.getElementById('btnQuadra').addEventListener('click', function() {
+document.getElementById('btnQuadra').addEventListener('click', function () {
     let resultadoQuadra = contarRepeticoes(sorteiosMegaSena, 4);
     atualizarResultados('resultadoQuadra', 'countQuadra', 'listaQuadra', resultadoQuadra);
 });
+// FUNÇÃO PARA VERIFICAR NUMERO QUE MAIS SAEM 
+function contarNumerosMaisFrequentes() {
+    let frequencia = {};
+
+    sorteiosMegaSena.forEach(sorteio => {
+        sorteio.forEach(numero => {
+            if (frequencia[numero]) {
+                frequencia[numero]++;
+            } else {
+                frequencia[numero] = 1;
+            }
+        });
+    });
+
+    let numerosMaisFrequentes = Object.keys(frequencia).map(numero => {
+        return { numero: parseInt(numero), frequencia: frequencia[numero] };
+    });
+
+    numerosMaisFrequentes.sort((a, b) => b.frequencia - a.frequencia);
+
+    return numerosMaisFrequentes;
+}
+
+function verNumerosMaisFrequentes() {
+    let output = document.getElementById('output');
+    let numerosMaisFrequentes = contarNumerosMaisFrequentes();
+
+    output.innerHTML = '<h2>Números Mais Frequentes</h2><ul>';
+    numerosMaisFrequentes.forEach(item => {
+        output.innerHTML += `<li>Número: ${item.numero} - Frequência: ${item.frequencia}</li>`;
+    });
+    output.innerHTML += '</ul>';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('button[onclick="verNumerosMaisFrequentes()"]').addEventListener('click', verNumerosMaisFrequentes);
+});
+
+
+
