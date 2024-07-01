@@ -16,21 +16,24 @@
     <section class="home">
       <h1>Gerador de Sugestões</h1>
       <div class="container-buttons">
-        <button class="button" onclick="inserirSorteio()">Escolher números</button>
-        <button class="button" onclick="verNumerosMaisFrequentes()">
-          Ver Números Mais Frequentes
-        </button>
+        <button class="button" onclick="inserirSorteio()">Jogar</button>
         <button class="button" onclick="gerarSugestoes()">Gerar Jogos</button>
         <button class="button" onclick="adicionarNumerosEscolhidos()">
           Adicionar Números
         </button>
         <button class="button" onclick="exibirNumerosEscolhidos()">
-          Ver Números Escolhidos
+          Números Adicionados
+         </button>
+        <button class="button" onclick="verNumerosMaisFrequentes()">
+          Ver Números Mais Frequentes
         </button>
+        
+        
         <button class="button" onclick="verificarSequenciasSorteadas()">
-          Verificar Sequências Sorteadas
-        </button>
-        <button class="button" onclick="sair()">Sair</button>
+         Sequências mais Sorteadas
+        </button>      
+      </div>
+      <div>
         <p id="output"></p>
       </div>
       <div class="verificar-dezena">
