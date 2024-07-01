@@ -2744,26 +2744,26 @@ let sorteiosMegaSena = [
     [4, 5, 30, 33, 41, 52]
 ];
 
-// Função para formatar números com dois dígitos
-function formatarDoisDigitos(numero) {
-    return numero.toLocaleString('en-US', {
-        minimumIntegerDigits: 2,
-        useGrouping: false
-    });
-}
+// // Função para formatar números com dois dígitos
+// function formatarDoisDigitos(numero) {
+//     return numero.toLocaleString('en-US', {
+//         minimumIntegerDigits: 2,
+//         useGrouping: false
+//     });
+// }
 
-// Função para formatar todos os números do array
-function formatarArrayDoisDigitos(array) {
-    let novoArray = [];
-    for (let i = 0; i < array.length; i++) {
-        let subArray = array[i].map(formatarDoisDigitos);
-        novoArray.push(subArray);
-    }
-    return novoArray;
-}
+// // Função para formatar todos os números do array
+// function formatarArrayDoisDigitos(array) {
+//     let novoArray = [];
+//     for (let i = 0; i < array.length; i++) {
+//         let subArray = array[i].map(formatarDoisDigitos);
+//         novoArray.push(subArray);
+//     }
+//     return novoArray;
+// }
 
-// Aplica a formatação ao array sorteiosMegaSena
-sorteiosMegaSena = formatarArrayDoisDigitos(sorteiosMegaSena);
+// // Aplica a formatação ao array sorteiosMegaSena
+// sorteiosMegaSena = formatarArrayDoisDigitos(sorteiosMegaSena);
 //==============================
 
 let numerosEscolhidos = [];
