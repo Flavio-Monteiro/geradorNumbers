@@ -2744,6 +2744,28 @@ let sorteiosMegaSena = [
     [4, 5, 30, 33, 41, 52]
 ];
 
+// Função para formatar números com dois dígitos
+function formatarDoisDigitos(numero) {
+    return numero.toLocaleString('en-US', {
+        minimumIntegerDigits: 2,
+        useGrouping: false
+    });
+}
+
+// Função para formatar todos os números do array
+function formatarArrayDoisDigitos(array) {
+    let novoArray = [];
+    for (let i = 0; i < array.length; i++) {
+        let subArray = array[i].map(formatarDoisDigitos);
+        novoArray.push(subArray);
+    }
+    return novoArray;
+}
+
+// Aplica a formatação ao array sorteiosMegaSena
+sorteiosMegaSena = formatarArrayDoisDigitos(sorteiosMegaSena);
+//==============================
+
 let numerosEscolhidos = [];
 
 // Função para contar a frequência dos números nos sorteios
@@ -2848,7 +2870,6 @@ function inserirSorteio() {
         }
     }
 }
-
 // Função para ver os números mais frequentes
 function verNumerosMaisFrequentes() {
     const maisFrequentes = numerosMaisFrequentes(sorteiosMegaSena);
@@ -2859,7 +2880,6 @@ function verNumerosMaisFrequentes() {
 function limparOutput() {
     document.getElementById('output').innerText = '';
 }
-
 
 // Função para verificar e exibir quais números da sequência foram sorteados
 function verificarSequenciasSorteadas() {
