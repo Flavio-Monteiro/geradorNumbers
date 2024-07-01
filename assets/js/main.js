@@ -2848,7 +2848,6 @@ function inserirSorteio() {
         }
     }
 }
-
 // Função para ver os números mais frequentes
 function verNumerosMaisFrequentes() {
     const maisFrequentes = numerosMaisFrequentes(sorteiosMegaSena);
@@ -2859,7 +2858,6 @@ function verNumerosMaisFrequentes() {
 function limparOutput() {
     document.getElementById('output').innerText = '';
 }
-
 
 // Função para verificar e exibir quais números da sequência foram sorteados
 function verificarSequenciasSorteadas() {
