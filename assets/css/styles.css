@@ -19,6 +19,10 @@ html {
 body {
   font-family: 'Open Sans', sans-serif;
   background-color: #f5f5f5;
+  background-image: url('../images/clover-587479_1280.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   margin: 0;
   padding: 0;
 }
@@ -41,14 +45,17 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 5px;
   margin: 20px 0;
+  padding: 10px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .button {
   background-color: #007bff;
-  width: calc(40% - 10px); /* Ajuste para 50% menos a margem */
-  min-height: 50px;
+  width: 30%; /* Ajuste para 50% menos a margem */
+  height: 70px;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -84,10 +91,11 @@ h1 {
 }
 
 .verificar-dezena button {
-  width: calc(40% - 10px); /* Ajuste para 50% menos a margem */
-  height: 50px;
+  width: calc(30% - 10px); /* Ajuste para 50% menos a margem */
+  height: 70px;
   background-color: #28a745;
   margin: 5px;
+  border-radius: 5px;
 }
 
 .verificar-dezena button:hover {
@@ -126,3 +134,15 @@ h1 {
   border: solid red;
   width: 50;
 }
+#output {
+  
+  list-style-type: none;
+  
+}
+
+/* #listaQuadra {
+  border: solid red;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+} */

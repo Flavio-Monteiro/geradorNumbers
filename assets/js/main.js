@@ -2765,6 +2765,13 @@ let sorteiosMegaSena = [
 // // Aplica a formatação ao array sorteiosMegaSena
 // sorteiosMegaSena = formatarArrayDoisDigitos(sorteiosMegaSena);
 //==============================
+// Função para formatar números com pelo menos dois algarismos
+// function formatarDoisAlgarismos(numero) {
+//     return numero.toString().padStart(2, '0'); // converte para string e adiciona 0 à esquerda se necessário
+// }
+
+// // Formatando todos os números em sorteiosMegaSena
+// sorteiosMegaSena = sorteiosMegaSena.map(sorteio => sorteio.map(numero => formatarDoisAlgarismos(numero)));
 
 let numerosEscolhidos = [];
 
@@ -2787,7 +2794,7 @@ function numerosMaisFrequentes(sorteados, quantidade = 12) {
 }
 
 // Função para gerar sugestões de jogos com base nos números dos sorteios de forma embaralhada
-function gerarSugestoes(quantidadeSugestoes = 10, numerosPorJogo = 6) {
+function gerarSugestoes(quantidadeSugestoes = 2, numerosPorJogo = 6) {
     const sugestoes = [];
     const numerosSorteados = [].concat(...sorteiosMegaSena); // Extrai todos os números sorteados em uma lista única
 
@@ -2873,7 +2880,8 @@ function inserirSorteio() {
 // Função para ver os números mais frequentes
 function verNumerosMaisFrequentes() {
     const maisFrequentes = numerosMaisFrequentes(sorteiosMegaSena);
-    document.getElementById('output').innerText = 'Números mais frequentes: ' + maisFrequentes.join(', ');
+    document.getElementById('output').innerText = 'Números mais Sorteados: ' + maisFrequentes.join(', ');
+
 }
 
 // Função para limpar a saída
