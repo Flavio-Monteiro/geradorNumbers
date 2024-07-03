@@ -125,3 +125,9 @@ btnSair.pack(pady=10)
 
 # Rodar o loop principal do tkinter
 root.mainloop()
+
+
+
+
+
+

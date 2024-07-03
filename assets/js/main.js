@@ -3055,4 +3055,49 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+//FUNÇÃO PARA O BOTAO QUE GERA SUGESTOES NOVO. É INDEPENDENTE DAS FUNÇÕES ACIMA
 
+function contemSequencia(arr, seq) {
+    let seqString = seq.join(',');
+    return arr.some(sorteio => {
+        let sorteioString = sorteio.join(',');
+        return sorteioString.includes(seqString);
+    });
+}
+
+function gerarPalpite() {
+    const numeros = Array.from({ length: 60 }, (_, i) => i + 1);
+    let palpite = [];
+
+    while (palpite.length < 6) {
+        const numero = numeros[Math.floor(Math.random() * numeros.length)];
+        if (!palpite.includes(numero)) {
+            palpite.push(numero);
+        }
+    }
+
+    return palpite.sort((a, b) => a - b);
+}
+
+function validarPalpite(palpite) {
+    for (let i = 3; i <= 6; i++) {
+        for (let j = 0; j <= 6 - i; j++) {
+            let subSequencia = palpite.slice(j, j + i);
+            if (contemSequencia(sorteiosMegaSena, subSequencia)) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+function gerarSugestao() {
+    let palpite = [];
+    do {
+        palpite = gerarPalpite();
+    } while (!validarPalpite(palpite));
+
+    document.getElementById('suggestion').innerText = `Sugestão de sorteio: ${palpite.join(', ')}`;
+}
+
+document.getElementById('gerarSugestaoBtn').addEventListener('click', gerarSugestao);
