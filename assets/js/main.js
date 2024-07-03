@@ -2931,7 +2931,7 @@ function verificarSequenciasSorteadas() {
     if (todasSorteadas) {
         alert(`Atenção: Todas as sequências de três números escolhidas já foram sorteadas.`);
     } else {
-        alert(`Pelo menos uma das sequências de três números escolhidas ainda não foi sorteada.`);
+        alert(`Suas dezenas ainda não foram sorteadas na Mega-Sena.`);
     }
 }
 
